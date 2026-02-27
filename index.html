@@ -1,72 +1,60 @@
 <!DOCTYPE html>
-<html lang="th">
+<html>
 <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>โดนเข้าให้แล้ว!</title>
+    <title>Surprise!</title>
     <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
-            font-family: 'Arial', sans-serif;
-            overflow: hidden;
+        body { margin: 0; background: #000; font-family: sans-serif; overflow: hidden; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        
+        /* หน้าปกสีดำบังไว้เพื่อให้คนแตะ (เพื่อให้เพลงดังทันที) */
+        #overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: #000; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; z-index: 100; cursor: pointer;
+            color: white; text-align: center;
         }
-        #circle-btn {
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            background-image: url('https://api.dicebear.com/7.x/pixel-art/svg?seed=funny'); /* รูปกวนๆ แบบสุ่ม */
-            background-size: cover;
-            border: 10px solid #ff5722;
-            cursor: pointer;
-            transition: transform 0.1s;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+
+        /* รูปส้มกล้ามโต */
+        #orange-btn { 
+            width: 300px; 
+            height: 300px; 
+            border-radius: 20px; /* ทรงเหลี่ยมมนนิดๆ จะเห็นรูปชัดกว่าวงกลมครับ */
+            background-image: url('https://files.catbox.moe/p8q6m6.jpg'); /* ลิงก์รูปส้มกล้ามของคุณ */
+            background-size: cover; 
+            background-position: center;
+            border: 5px solid #ff6600;
+            box-shadow: 0 0 20px #ff6600;
         }
-        #circle-btn:active {
-            transform: scale(0.9);
-        }
-        .controls {
-            position: absolute;
-            bottom: 20px;
-        }
+
+        .warn-icon { font-size: 80px; margin-bottom: 10px; animation: blink 1s infinite; }
+        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
     </style>
 </head>
 <body>
 
-    <div id="circle-btn" onclick="playFunnySound()"></div>
+    <div id="overlay" onclick="startJoke()">
+        <div class="warn-icon">⚠️</div>
+        <p style="font-size: 18px;">ตรวจพบข้อผิดพลาดของระบบ<br><b>แตะเพื่อตรวจสอบและแก้ไข</b></p>
+    </div>
 
-    <div class="controls">
-        <button onclick="changeTrack()">เปลี่ยนเพลงกวนๆ</button>
+    <div style="text-align: center;">
+        <div id="orange-btn"></div>
+        <h1 style="color: #ff6600; margin-top: 20px; text-shadow: 2px 2px #000;">โดนเข้าให้แล้ว! 555</h1>
     </div>
 
     <script>
-        // ใส่ URL ไฟล์เพลงกวนๆ ของคุณตรงนี้
-        const playlist = [
-            "https://www.soundjay.com/buttons/beep-01a.mp3", 
-            "https://www.soundjay.com/human/laughter-2.mp3",
-            "https://www.soundjay.com/mechanical/clown-horn-01.mp3"
-        ];
-        
-        let currentTrack = 0;
-        const audio = new Audio(playlist[currentTrack]);
+        // ใส่ลิงก์เพลง .mp3 ที่คุณต้องการตรงนี้ครับ
+        const myMusic = "https://www.myinstants.com/media/sounds/fart-with-reverb.mp3";
+        const audio = new Audio(myMusic);
 
-        function playFunnySound() {
-            audio.currentTime = 0; // เล่นใหม่ทุกครั้งที่กด
+        function startJoke() {
+            // ซ่อนหน้าปกดำ
+            document.getElementById('overlay').style.display = 'none';
+            // เล่นเพลงทันที
             audio.play();
-            // สุ่มเปลี่ยนรูปทุกครั้งที่กด
-            document.getElementById('circle-btn').style.backgroundImage = `url('https://api.dicebear.com/7.x/pixel-art/svg?seed=${Math.random()}')`;
-        }
-
-        function changeTrack() {
-            currentTrack = (currentTrack + 1) % playlist.length;
-            audio.src = playlist[currentTrack];
-            alert("เปลี่ยนเพลงแล้ว! ลองกดที่วงกลมดูใหม่");
+            // วนลูปเพลง (ถ้าอยากให้หยุดเมื่อจบเพลงเดียว ให้เปลี่ยน true เป็น false)
+            audio.loop = true; 
         }
     </script>
 </body>
 </html>
-
