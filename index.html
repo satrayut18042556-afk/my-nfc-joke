@@ -1,26 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="th">
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surprise!</title>
     <style>
+        /* จัดวางให้อยู่ตรงกลางหน้าจอ */
         body { margin: 0; background: #000; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
-        /* https://files.catbox.moe/p8q6m6.jpgรูปส้มกล้ามโตทรงวงกลม */
+        
+        /* ส้มกล้ามโตทรงวงกลม */
         #orange-circle { 
-            width: 300px; height: 300px; border-radius: 50%; 
-            background-image: url('https://files.catbox.moe/p8q6m6.jpg'); 
-            background-size: cover; background-position: center;
-            border: 8px solid #ff6600; box-shadow: 0 0 30px #ff6600;
+            width: 300px; 
+            height: 300px; 
+            border-radius: 50%; /* ทำให้เป็นทรงวงกลม */
+            background-image: url('https://files.catbox.moe/p8q6m6.jpg'); /* รูปส้มที่คุณต้องการ */
+            background-size: cover; 
+            background-position: center;
+            border: 8px solid #ff6600; 
+            box-shadow: 0 0 30px #ff6600;
             cursor: pointer;
+            transition: transform 0.2s; /* เพิ่มลูกเล่นตอนกด */
         }
+        #orange-circle:active { transform: scale(0.9); } /* เวลากดจะยุบตัวลงนิดหน่อย */
     </style>
 </head>
 <body>
     <div id="orange-circle" onclick="playMusic()"></div>
+
     <script>
-        /* https://www.myinstants.com/en/instant/67-71609/?utm_source=copy&utm_medium=shareลิงก์เสียงที่คุณต้องการ */
-        const audio = new Audio("https://www.myinstants.com/media/sounds/fart-with-reverb.mp3");
-        function playMusic() { 
-            audio.play(); 
+        // ใส่ลิงก์เพลงที่คุณเลือก
+        const audio = new Audio("https://www.myinstants.com/en/instant/67-71609/?utm_source=copy&utm_medium=share);
+        
+        function playMusic() {
+            audio.play(); // แตะที่ส้มแล้วเพลงดังทันที
             audio.loop = true; 
         }
     </script>
