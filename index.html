@@ -1,28 +1,27 @@
 <!DOCTYPE html>
-<html lang="th">
+<html>
 <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Surprise!</title>
     <style>
         body { margin: 0; background: #000; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
+        /* รูปส้มกล้ามโตทรงวงกลม */
         #orange-circle { 
             width: 300px; height: 300px; border-radius: 50%; 
             background-image: url('https://files.catbox.moe/p8q6m6.jpg'); 
             background-size: cover; background-position: center;
             border: 8px solid #ff6600; box-shadow: 0 0 30px #ff6600;
-            cursor: pointer; transition: transform 0.2s;
+            cursor: pointer;
         }
-        #orange-circle:active { transform: scale(0.9); }
     </style>
 </head>
 <body>
     <div id="orange-circle" onclick="playMusic()"></div>
     <script>
+        /* https://www.myinstants.com/en/instant/67-71609/?utm_source=copy&utm_medium=shareลิงก์เสียงที่คุณต้องการ */
         const audio = new Audio("https://www.myinstants.com/media/sounds/fart-with-reverb.mp3");
-        function playMusic() {
-            audio.play();
-            audio.loop = true;
+        function playMusic() { 
+            audio.play(); 
+            audio.loop = true; 
         }
     </script>
 </body>
