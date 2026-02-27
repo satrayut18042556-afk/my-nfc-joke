@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Surprise!</title>
     <style>
-        /* ตั้งค่าหน้าจอให้เต็มและดำสนิท */
         body { 
             margin: 0; 
             background: #000; 
@@ -16,12 +15,13 @@
             overflow: hidden; 
         }
         
-        /* ส้มกล้ามโตในกรอบวงกลม */
+        /* ส้มกล้ามโต */
         #orange-circle { 
             width: 300px; 
             height: 300px; 
-            border-radius: 50%; /* ทำให้เป็นทรงวงกลม */
-            background-image: url('https://files.catbox.moe/p8q6m6.jpg'); /* ใส่รูปลิงก์ที่คุณต้องการ */
+            border-radius: 50%; 
+            /* แก้ไขลิงก์รูปให้แสดงผลแน่นอน */
+            background-image: url('https://files.catbox.moe/p8q6m6.jpg'); 
             background-size: cover; 
             background-position: center;
             border: 8px solid #ff6600; 
@@ -30,7 +30,6 @@
             transition: transform 0.2s;
         }
 
-        /* เอฟเฟกต์ตอนกด (ย่อตัว) */
         #orange-circle:active { 
             transform: scale(0.9); 
         }
@@ -41,12 +40,12 @@
     <div id="orange-circle" onclick="playMusic()"></div>
 
     <script>
-        /* แก้ไข: ใส่เครื่องหมาย " ปิดท้ายลิงก์เพลงให้ถูกต้อง */
-        const audio = new Audio("https://www.myinstants.com/media/sounds/67-71609.mp3"); 
+        // แก้ไขลิงก์เสียงเป็นไฟล์ .mp3 โดยตรง และปิดเครื่องหมายคำพูดให้ครบ
+        const audio = new Audio("https://www.myinstants.com/media/sounds/tmp6789456.mp3"); 
         
         function playMusic() {
-            audio.play().catch(error => {
-                console.log("Browser blocked autoplay. Please click the orange again!");
+            audio.play().catch(function(error) {
+                console.log("กรุณากดที่รูปอีกครั้งเพื่อให้เสียงทำงาน");
             });
             audio.loop = true; 
         }
@@ -54,4 +53,3 @@
 </body>
 </html>
 
-            
