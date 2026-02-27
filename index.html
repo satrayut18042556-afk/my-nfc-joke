@@ -1,59 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="th">
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Surprise!</title>
     <style>
-        body { margin: 0; background: #000; font-family: sans-serif; overflow: hidden; display: flex; justify-content: center; align-items: center; height: 100vh; }
-        
-        /* หน้าปกสีดำบังไว้เพื่อให้คนแตะ (เพื่อให้เพลงดังทันที) */
-        #overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: #000; display: flex; flex-direction: column;
-            justify-content: center; align-items: center; z-index: 100; cursor: pointer;
-            color: white; text-align: center;
+        body { margin: 0; background: #000; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
+        #orange-circle { 
+            width: 300px; height: 300px; border-radius: 50%; 
+            background-image: url('https://files.catbox.moe/p8q6m6.jpg'); 
+            background-size: cover; background-position: center;
+            border: 8px solid #ff6600; box-shadow: 0 0 30px #ff6600;
+            cursor: pointer; transition: transform 0.2s;
         }
-
-        /* รูปส้มกล้ามโต */
-        #orange-btn { 
-            width: 300px; 
-            height: 300px; 
-            border-radius: 20px; /* ทรงเหลี่ยมมนนิดๆ จะเห็นรูปชัดกว่าวงกลมครับ */
-            background-image: url('https://files.catbox.moe/p8q6m6.jpg'); /* https://share.google/2uzqd9Xfkb8kPktONลิงก์รูปส้มกล้ามของคุณ */
-            background-size: cover; 
-            background-position: center;
-            border: 5px solid #ff6600;
-            box-shadow: 0 0 20px #ff6600;
-        }
-
-        .warn-icon { font-size: 80px; margin-bottom: 10px; animation: blink 1s infinite; }
-        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
+        #orange-circle:active { transform: scale(0.9); }
     </style>
 </head>
 <body>
-
-    <div id="overlay" onclick="startJoke()">
-        <div class="warn-icon">⚠️</div>
-        <p style="font-size: 18px;">ตรวจพบข้อผิดพลาดของระบบ<br><b>แตะเพื่อตรวจสอบและแก้ไข</b></p>
-    </div>
-
-    <div style="text-align: center;">
-        <div id="orange-btn"></div>
-        <h1 style="color: #ff6600; margin-top: 20px; text-shadow: 2px 2px #000;">โดนเข้าให้แล้ว! 555</h1>
-    </div>
-
+    <div id="orange-circle" onclick="playMusic()"></div>
     <script>
-        // https://www.myinstants.com/en/instant/67-71609/?utm_source=copy&utm_medium=sharehttps://www.myinstants.com/en/instant/67-71609/?utm_source=copy&utm_medium=shareส่ลิงก์เพลง .mp3 ที่คุณต้องการตรงนี้ครับ
-        const myMusic = ;
-        const audio = new Audio(myMusic);
-
-        function startJoke() {
-            // ซ่อนหน้าปกดำ
-            document.getElementById('overlay').style.display = 'none';
-            // เล่นเพลงทันที
+        const audio = new Audio("https://www.myinstants.com/media/sounds/fart-with-reverb.mp3");
+        function playMusic() {
             audio.play();
-            // วนลูปเพลง (ถ้าอยากให้หยุดเมื่อจบเพลงเดียว ให้เปลี่ยน true เป็น false)
-            audio.loop = true; 
+            audio.loop = true;
         }
     </script>
 </body>
