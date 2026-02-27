@@ -6,35 +6,22 @@
     <title>Surprise!</title>
     <style>
         /* จัดวางให้อยู่ตรงกลางหน้าจอ */
-        body { margin: 0; background: #000; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
+        body { 
+            margin: 0; 
+            background: #000; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            overflow: hidden; 
+        }
         
         /* ส้มกล้ามโตทรงวงกลม */
         #orange-circle { 
             width: 300px; 
             height: 300px; 
             border-radius: 50%; /* ทำให้เป็นทรงวงกลม */
-            background-image: url('https://files.catbox.moe/p8q6m6.jpg'); /* รูปส้มที่คุณต้องการ */
+            background-image: url('https://files.catbox.moe/p8q6m6.jpg'); /* ใส่ลิงก์รูปให้แล้วครับ */
             background-size: cover; 
             background-position: center;
-            border: 8px solid #ff6600; 
-            box-shadow: 0 0 30px #ff6600;
-            cursor: pointer;
-            transition: transform 0.2s; /* เพิ่มลูกเล่นตอนกด */
-        }
-        #orange-circle:active { transform: scale(0.9); } /* เวลากดจะยุบตัวลงนิดหน่อย */
-    </style>
-</head>
-<body>
-    <div id="orange-circle" onclick="playMusic()"></div>
-
-    <script>
-        // ใส่ลิงก์เพลงที่คุณเลือก
-        const audio = new Audio("https://www.myinstants.com/en/instant/67-71609/?utm_source=copy&utm_medium=share);
-        
-        function playMusic() {
-            audio.play(); // แตะที่ส้มแล้วเพลงดังทันที
-            audio.loop = true; 
-        }
-    </script>
-</body>
-</html>
+            
