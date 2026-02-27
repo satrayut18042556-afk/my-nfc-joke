@@ -5,51 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Surprise!</title>
     <style>
-        body { 
-            margin: 0; 
-            background: #000; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            height: 100vh; 
-            overflow: hidden; 
-        }
+        body { margin: 0; background: #000; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
         
-        /* ส้มกล้ามโต */
         #orange-circle { 
-            width: 300px; 
-            height: 300px; 
-            border-radius: 50%; 
-            /* แก้ไขลิงก์รูปให้แสดงผลแน่นอน */
+            width: 300px; height: 300px; border-radius: 50%; 
+            /* ใส่รูปส้มกล้ามโต */
             background-image: url('https://files.catbox.moe/p8q6m6.jpg'); 
-            background-size: cover; 
-            background-position: center;
-            border: 8px solid #ff6600; 
-            box-shadow: 0 0 30px #ff6600;
-            cursor: pointer;
-            transition: transform 0.2s;
+            background-size: cover; background-position: center;
+            border: 8px solid #ff6600; box-shadow: 0 0 30px #ff6600;
+            cursor: pointer; transition: transform 0.1s;
         }
-
-        #orange-circle:active { 
-            transform: scale(0.9); 
-        }
+        #orange-circle:active { transform: scale(0.9); }
     </style>
 </head>
 <body>
-
     <div id="orange-circle" onclick="playMusic()"></div>
 
     <script>
-        // แก้ไขลิงก์เสียงเป็นไฟล์ .mp3 โดยตรง และปิดเครื่องหมายคำพูดให้ครบ
-        const audio = new Audio("https://www.myinstants.com/media/sounds/tmp6789456.mp3"); 
+        // ใช้ลิงก์ไฟล์เสียงโดยตรง (ลงท้ายด้วย .mp3)
+        const audio = new Audio("https://www.myinstants.com/media/sounds/stair-falling.mp3"); 
         
         function playMusic() {
-            audio.play().catch(function(error) {
-                console.log("กรุณากดที่รูปอีกครั้งเพื่อให้เสียงทำงาน");
-            });
+            audio.play().catch(e => console.log("คลิกที่รูปอีกทีนะครับ"));
             audio.loop = true; 
         }
     </script>
 </body>
 </html>
-
