@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>โดนเข้าให้แล้ว!</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+        #circle-btn {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background-image: url('https://api.dicebear.com/7.x/pixel-art/svg?seed=funny'); /* รูปกวนๆ แบบสุ่ม */
+            background-size: cover;
+            border: 10px solid #ff5722;
+            cursor: pointer;
+            transition: transform 0.1s;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        #circle-btn:active {
+            transform: scale(0.9);
+        }
+        .controls {
+            position: absolute;
+            bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="circle-btn" onclick="playFunnySound()"></div>
+
+    <div class="controls">
+        <button onclick="changeTrack()">เปลี่ยนเพลงกวนๆ</button>
+    </div>
+
+    <script>
+        // ใส่ URL ไฟล์เพลงกวนๆ ของคุณตรงนี้
+        const playlist = [
+            "https://www.soundjay.com/buttons/beep-01a.mp3", 
+            "https://www.soundjay.com/human/laughter-2.mp3",
+            "https://www.soundjay.com/mechanical/clown-horn-01.mp3"
+        ];
+        
+        let currentTrack = 0;
+        const audio = new Audio(playlist[currentTrack]);
+
+        function playFunnySound() {
+            audio.currentTime = 0; // เล่นใหม่ทุกครั้งที่กด
+            audio.play();
+            // สุ่มเปลี่ยนรูปทุกครั้งที่กด
+            document.getElementById('circle-btn').style.backgroundImage = `url('https://api.dicebear.com/7.x/pixel-art/svg?seed=${Math.random()}')`;
+        }
+
+        function changeTrack() {
+            currentTrack = (currentTrack + 1) % playlist.length;
+            audio.src = playlist[currentTrack];
+            alert("เปลี่ยนเพลงแล้ว! ลองกดที่วงกลมดูใหม่");
+        }
+    </script>
+</body>
+</html>
+
