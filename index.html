@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Surprise!</title>
     <style>
-        /* จัดวางให้อยู่ตรงกลางหน้าจอ */
+        /* ตั้งค่าหน้าจอให้เต็มและดำสนิท */
         body { 
             margin: 0; 
             background: #000; 
@@ -16,12 +16,42 @@
             overflow: hidden; 
         }
         
-        /* ส้มกล้ามโตทรงวงกลม */
+        /* ส้มกล้ามโตในกรอบวงกลม */
         #orange-circle { 
             width: 300px; 
             height: 300px; 
             border-radius: 50%; /* ทำให้เป็นทรงวงกลม */
-            background-image: url('https://files.catbox.moe/p8q6m6.jpg'); /* ใส่ลิงก์รูปให้แล้วครับ */
+            background-image: url('https://files.catbox.moe/p8q6m6.jpg'); /* ใส่รูปลิงก์ที่คุณต้องการ */
             background-size: cover; 
             background-position: center;
+            border: 8px solid #ff6600; 
+            box-shadow: 0 0 30px #ff6600;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        /* เอฟเฟกต์ตอนกด (ย่อตัว) */
+        #orange-circle:active { 
+            transform: scale(0.9); 
+        }
+    </style>
+</head>
+<body>
+
+    <div id="orange-circle" onclick="playMusic()"></div>
+
+    <script>
+        /* แก้ไข: ใส่เครื่องหมาย " ปิดท้ายลิงก์เพลงให้ถูกต้อง */
+        const audio = new Audio("https://www.myinstants.com/media/sounds/67-71609.mp3"); 
+        
+        function playMusic() {
+            audio.play().catch(error => {
+                console.log("Browser blocked autoplay. Please click the orange again!");
+            });
+            audio.loop = true; 
+        }
+    </script>
+</body>
+</html>
+
             
