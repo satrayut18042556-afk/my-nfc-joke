@@ -6,11 +6,10 @@
     <title>Surprise!</title>
     <style>
         body { margin: 0; background: #000; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
-        
         #orange-circle { 
             width: 300px; height: 300px; border-radius: 50%; 
-            /* ใส่รูปส้มกล้ามโต */
-            background-image: url('https://files.catbox.moe/p8q6m6.jpg'); 
+            /* พี่เปลี่ยนลิงก์รูปใหม่ให้แล้วครับ */
+            background-image: url('https://img5.pic.in.th/file/secure-sv1/p8q6m6.jpg'); 
             background-size: cover; background-position: center;
             border: 8px solid #ff6600; box-shadow: 0 0 30px #ff6600;
             cursor: pointer; transition: transform 0.1s;
@@ -20,15 +19,13 @@
 </head>
 <body>
     <div id="orange-circle" onclick="playMusic()"></div>
-
     <script>
-        // ใช้ลิงก์ไฟล์เสียงโดยตรง (ลงท้ายด้วย .mp3)
         const audio = new Audio("https://www.myinstants.com/media/sounds/stair-falling.mp3"); 
-        
         function playMusic() {
-            audio.play().catch(e => console.log("คลิกที่รูปอีกทีนะครับ"));
+            audio.play().catch(e => console.log("คลิกอีกทีนะ"));
             audio.loop = true; 
         }
     </script>
 </body>
 </html>
+
